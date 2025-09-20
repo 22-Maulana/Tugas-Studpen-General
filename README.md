@@ -3,7 +3,7 @@
 
 ---
 
-### Welcome to My Professional Portfolio Repository
+### Welcome to My Journey Repository
 
 This repository serves as a centralized collection of my assignments, projects, and progress throughout my **Internship and Independent Study program** at **PT Nurul Fikri Cipta Inovasi**. I am participating in this program to develop my skills as a Full Stack Web Developer.
 
