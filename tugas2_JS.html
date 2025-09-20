@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pegawai</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        thead {
+            background-color: #4CAF50;
+            color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tfoot {
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 align="center">Data Pegawai</h1>
+
+    <script>
+        let namaPegawai = 'Dodi Prayodi';
+        let umur = 25;
+        let jabatan = 'Manajer';
+        let status = 'Menikah';
+        let gajiPokok;
+
+        if (jabatan === 'Manajer') {
+            gajiPokok = 15000000;
+        } else if (jabatan === 'Asisten Manajer') {
+            gajiPokok = 10000000;
+        } else if (jabatan === 'Staff') {
+            gajiPokok = 5000000;
+        } else {
+            gajiPokok = 0;
+        }
+
+        let tunjanganJabatan = 0.15 * gajiPokok;
+        let bpjs = 0.10 * gajiPokok;
+        let tunjanganKeluarga = (status === 'Menikah') ? 0.20 * gajiPokok : 0;
+        let totalGaji = gajiPokok + tunjanganJabatan + tunjanganKeluarga - bpjs;
+
+        function formatRupiah(angka) {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(angka);
+        }
+
+        document.write(`
+            <table>
+                <thead>
+                    <tr>
+                        <th>Keterangan</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nama Pegawai</td>
+                        <td>${namaPegawai}</td>
+                    </tr>
+                    <tr>
+                        <td>Umur</td>
+                        <td>${umur} Tahun</td>
+                    </tr>
+                    <tr>
+                        <td>Jabatan</td>
+                        <td>${jabatan}</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>${status}</td>
+                    </tr>
+                    <tr>
+                        <td>Gaji Pokok</td>
+                        <td>${formatRupiah(gajiPokok)}</td>
+                    </tr>
+                    <tr>
+                        <td>Tunjangan Jabatan</td>
+                        <td>${formatRupiah(tunjanganJabatan)}</td>
+                    </tr>
+                    <tr>
+                        <td>BPJS</td>
+                        <td>${formatRupiah(bpjs)}</td>
+                    </tr>
+                    <tr>
+                        <td>Tunjangan Keluarga</td>
+                        <td>${formatRupiah(tunjanganKeluarga)}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total Gaji</td>
+                        <td>${formatRupiah(totalGaji)}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        `);
+    </script>
+
+</body>
+</html>
