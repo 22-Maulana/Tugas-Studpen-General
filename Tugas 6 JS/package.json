@@ -1,0 +1,12 @@
+{
+  "name": "tugas-js",
+  "version": "1.0.0",
+  "description": "Tugas Pertemuan 6 JS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
